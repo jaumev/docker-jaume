@@ -2,9 +2,7 @@ FROM library/debian
 MAINTAINER jaume.v <holaemieza@xtec.cat>
 
 RUN apt-get update && \
-        apt-get install -y apache2  \
-        php5 \
-        libapache2-mod-php5 &&\
+        apt-get install -y apache2  &&\
 
 apt-get clean && apt-get autoclean && \
 rm -rf /var/lib/apt/lists/* && \

@@ -8,20 +8,17 @@ apt-get clean && apt-get autoclean && \
 rm -rf /var/lib/apt/lists/* && \
 rm -rf /var/www/html/* && \
 
-echo "<Directory /var/www>" >> /etc/apache2/sites-available/000-default.conf && \
-echo "	AllowOverride All" >> /etc/apache2/sites-available/000-default.conf && \
-echo "	Options -Indexes +FollowSymLinks" >> /etc/apache2/sites-available/000-default.conf && \
-echo "</Directory>" >> /etc/apache2/sites-available/000-default.conf && \
-sed -i "/<\/VirtualHost>/d" /etc/apache2/sites-available/000-default.conf && \
-echo "</VirtualHost>" >> /etc/apache2/sites-available/000-default.conf
+echo "<Directory /var/www>" >> /etc/apache2/sites-available/000-d$
+echo "  AllowOverride All" >> /etc/apache2/sites-available/000-de$
+echo "  Options -Indexes +FollowSymLinks" >> /etc/apache2/sites-a$
+echo "</Directory>" >> /etc/apache2/sites-available/000-default.c$
+sed -i "/<\/VirtualHost>/d" /etc/apache2/sites-available/000-defa$
+echo "</VirtualHost>" >> /etc/apache2/sites-available/000-default$
 
 
-ADD run.sh /run.sh
-ADD /var/www/html/index.html  /var/www/html/
-RUN chmod 755 /run.sh
+ADD index.html  /var/www/html/
 
 EXPOSE 80
 
 VOLUME ["/tmp/vol1"]
-
-CMD ["/bin/bash","/run.sh"]
+CMD ["apachectl","-D","FOREGROUND"]

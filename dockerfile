@@ -17,7 +17,7 @@ echo "</VirtualHost>" >> /etc/apache2/sites-available/000-default.conf
 
 
 ADD run.sh /run.sh
-ADD index.html / /var/www/html/
+ADD /var/www/html/index.html  /var/www/html/
 RUN chmod 755 /run.sh
 
 EXPOSE 80

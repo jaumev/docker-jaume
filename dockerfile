@@ -8,9 +8,9 @@ apt-get clean && apt-get autoclean && \
 rm -rf /var/lib/apt/lists/* && \
 rm -rf /var/www/html/* && \
 
-echo "<Directory /var/www>" >> /etc/apache2/sites-available/000-default.conf &$
-echo "  AllowOverride All" >> /etc/apache2/sites-available/000-default.conf &&$
-echo "  Options -Indexes +FollowSymLinks" >> /etc/apache2/sites-available/000-$
+echo "<Directory /var/www>" >> /etc/apache2/sites-available/000-default.conf && \
+echo "	AllowOverride All" >> /etc/apache2/sites-available/000-default.conf && \
+echo "	Options -Indexes +FollowSymLinks" >> /etc/apache2/sites-available/000-default.conf && \
 echo "</Directory>" >> /etc/apache2/sites-available/000-default.conf && \
 sed -i "/<\/VirtualHost>/d" /etc/apache2/sites-available/000-default.conf && \
 echo "</VirtualHost>" >> /etc/apache2/sites-available/000-default.conf
